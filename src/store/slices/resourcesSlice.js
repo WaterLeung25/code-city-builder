@@ -1,12 +1,13 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   solutionPoints: 0,
   buildingMaterials: 0,
+  patternProgress: {}
 };
 
-export const resourcesSlice = createSlice({
-  name: "resources",
+const resourcesSlice = createSlice({
+  name: 'resources',
   initialState,
   reducers: {
     addSolutionPoints: (state, action) => {
@@ -15,13 +16,12 @@ export const resourcesSlice = createSlice({
     addBuildingMaterials: (state, action) => {
       state.buildingMaterials += action.payload;
     },
-    spendResources: (state, action) => {
-      state.solutionPoints -= action.payload.solutionPoints || 0;
-      state.buildingMaterials -= action.payload.buildingMaterials || 0;
-    },
-  },
+    updatePatternProgress: (state, action) => {
+      const { pattern, count } = action.payload;
+      state.patternProgress[pattern] = (state.patternProgress[pattern] || 0) + count;
+    }
+  }
 });
 
-export const { addSolutionPoints, addBuildingMaterials, spendResources } =
-  resourcesSlice.actions;
+export const { addSolutionPoints, addBuildingMaterials, updatePatternProgress } = resourcesSlice.actions;
 export default resourcesSlice.reducer;

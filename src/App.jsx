@@ -1,5 +1,7 @@
 import React from "react";
 import "./App.scss";
+import Dashboard from "./components/Dashboard/Dashboard";
+import ProgressForm from "./components/ProgressForm/ProgressForm";
 
 function App() {
   return (
@@ -8,7 +10,8 @@ function App() {
         <h1>Code City Builder</h1>
       </header>
       <main className="app-main">
-        <h2>Welcome to Code City Builder!</h2>
+        <Dashboard />
+        <ProgressForm />
       </main>
     </div>
   );
