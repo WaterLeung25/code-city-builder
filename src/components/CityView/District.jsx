@@ -22,7 +22,7 @@ const District = ({ districtId, districtName, userBuildings }) => {
           className="build-button"
           onClick={() => setShowBuildOptions(!showBuildOptions)}
         >
-          {showBuildOptions ? "Hide Build Options" : "Build New Structure"}
+          {showBuildOptions ? "Hide" : "Build"}
         </button>
       </div>
 
