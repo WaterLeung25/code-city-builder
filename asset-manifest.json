@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/code-city-builder/static/css/main.c6dbc20c.css",
+    "main.js": "/code-city-builder/static/js/main.d56f7e0e.js",
+    "index.html": "/code-city-builder/index.html",
+    "main.c6dbc20c.css.map": "/code-city-builder/static/css/main.c6dbc20c.css.map",
+    "main.d56f7e0e.js.map": "/code-city-builder/static/js/main.d56f7e0e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c6dbc20c.css",
+    "static/js/main.d56f7e0e.js"
+  ]
+}
