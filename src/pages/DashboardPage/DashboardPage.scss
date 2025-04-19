@@ -1,0 +1,6 @@
+@import "../../styles/variables.scss";
+
+.dashboard-page {
+  @include pixel-container;
+  padding: 24px;
+}

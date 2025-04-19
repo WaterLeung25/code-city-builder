@@ -8,3 +8,5 @@ export const store = configureStore({
     buildings: buildingsReducer,
   },
 });
+
+export default store;

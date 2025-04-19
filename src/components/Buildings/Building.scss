@@ -1,0 +1,123 @@
+@import "../../styles/variables.scss";
+
+.building {
+  @include pixel-container;
+  padding: 20px; // Added more padding for better spacing
+
+  .building-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px; // Increased margin
+    padding-bottom: 20px; // Increased padding
+    border-bottom: 4px solid $pixel-border-dark;
+
+    h3 {
+      font-family: "Press Start 2P", cursive;
+      font-size: 0.9rem;
+      color: $pixel-dark;
+      margin: 0;
+      line-height: 1.5; // Added line height
+    }
+
+    .level-badge {
+      font-family: "Press Start 2P", cursive;
+      font-size: 0.8rem;
+      padding: 8px 12px;
+      background: $pixel-primary;
+      color: white;
+      @include pixel-borders($pixel-border-dark, 2px);
+      line-height: 1.5; // Added line height
+      display: inline-block; // Added to ensure proper spacing
+      white-space: nowrap; // Prevent text wrapping
+      min-width: 50px; // Ensure minimum width
+      text-align: center; // Center the text
+    }
+  }
+
+  .building-content {
+    .current-name {
+      font-family: "Press Start 2P", cursive;
+      font-size: 0.8rem;
+      color: $pixel-dark;
+      margin-bottom: 20px; // Increased margin
+      line-height: 1.5; // Added line height
+    }
+
+    .upgrade-section {
+      @include pixel-container;
+      background: $pixel-bg-secondary;
+      margin-top: 20px; // Increased margin
+      padding: 20px; // Added more padding
+
+      .next-level-header {
+        margin-bottom: 12px;
+
+        .next-level-label {
+          font-family: "Press Start 2P", cursive;
+          font-size: 0.8rem;
+          color: $pixel-light;
+          margin-bottom: 8px;
+          line-height: 1.5;
+        }
+
+        .next-level-name {
+          font-family: "Press Start 2P", cursive;
+          font-size: 0.8rem;
+          color: $pixel-light;
+          line-height: 1.5;
+        }
+      }
+
+      .cost-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px; // Increased padding
+        margin-bottom: 12px; // Increased margin
+        background: $pixel-bg-light;
+        @include pixel-borders($pixel-border-light, 2px);
+
+        &.sufficient {
+          border-color: $pixel-success;
+        }
+
+        &.insufficient {
+          border-color: $pixel-danger;
+        }
+
+        span {
+          font-family: "Press Start 2P", cursive;
+          font-size: 0.7rem;
+          line-height: 1.5; // Added line height
+        }
+      }
+
+      .upgrade-button {
+        @include pixel-button;
+        width: 100%;
+        margin-top: 20px; // Increased margin
+        padding: 12px; // Added padding
+        font-size: 0.8rem; // Slightly increased font size
+        line-height: 1.5; // Added line height
+      }
+    }
+  }
+
+  // Level-specific styling with slightly more contrast
+  &.level-0 {
+    background: $pixel-bg-light;
+  }
+
+  &.level-1 {
+    background: lighten($pixel-primary, 42%);
+  }
+
+  &.level-2 {
+    background: lighten($pixel-primary, 32%);
+  }
+
+  &.level-3 {
+    background: lighten($pixel-primary, 22%);
+  }
+}

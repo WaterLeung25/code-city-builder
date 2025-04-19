@@ -1,0 +1,140 @@
+@import "../../styles/variables.scss";
+
+.district {
+  @include pixel-container;
+  margin-bottom: 24px;
+
+  .district-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 4px solid $pixel-border-dark;
+
+    h3 {
+      font-family: "Press Start 2P", cursive;
+      font-size: 1rem;
+      color: $pixel-dark;
+      margin: 0;
+    }
+
+    .build-button {
+      @include pixel-button;
+      font-size: 0.7rem;
+    }
+  }
+
+  .build-options {
+    @include pixel-container;
+    background: $pixel-bg-secondary;
+    margin-bottom: 24px;
+
+    h4 {
+      font-family: "Press Start 2P", cursive;
+      font-size: 0.9rem;
+      color: $pixel-light;
+      margin-bottom: 16px;
+    }
+
+    .available-buildings {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(
+        auto-fill,
+        minmax(230px, 1fr)
+      ); // Reduced from 250px to 200px
+    }
+
+    .available-building {
+      @include pixel-container;
+      background: $pixel-bg-light;
+      display: flex; // Added
+      flex-direction: column; // Added
+      height: 280; // Fixed height - adjust this value as needed
+      justify-content: space-between; // Added
+
+      .building-info {
+        flex: 1; // Added to allow content to grow
+        overflow-y: auto; // Added to handle overflow content
+        padding-right: 8px; // Added for scroll bar spacing
+
+        h5 {
+          font-family: "Press Start 2P", cursive;
+          font-size: 0.8rem;
+          color: $pixel-dark;
+          margin: 0 0 8px 0;
+          line-height: 1.5;
+        }
+
+        p {
+          font-family: "Press Start 2P", cursive;
+          font-size: 0.7rem;
+          color: $pixel-primary;
+          margin: 0 0 8px 0;
+          line-height: 1.6;
+        }
+
+        .cost-display {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          font-family: "Press Start 2P", cursive;
+          font-size: 0.7rem;
+          line-height: 1.5;
+
+          .cost-line {
+            color: $pixel-dark;
+          }
+
+          .balance-line {
+            &.sufficient {
+              color: $pixel-success;
+            }
+
+            &.insufficient {
+              color: $pixel-danger;
+            }
+          }
+        }
+      }
+
+      .build-button {
+        @include pixel-button;
+        width: 100%;
+        font-size: 0.7rem;
+        margin-top: 12px; // Added some spacing from content above
+      }
+    }
+  }
+
+  .built-structures {
+    h4 {
+      font-family: "Press Start 2P", cursive;
+      font-size: 0.9rem;
+      color: $pixel-dark;
+      margin-bottom: 16px;
+    }
+
+    .buildings-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+
+    .empty-district {
+      @include pixel-container;
+      background: lighten($pixel-primary, 45%);
+      text-align: center;
+      padding: 24px;
+
+      p {
+        font-family: "Press Start 2P", cursive;
+        font-size: 0.8rem;
+        color: $pixel-dark;
+        margin: 0;
+        line-height: 1.5;
+      }
+    }
+  }
+}

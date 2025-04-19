@@ -1,28 +1,31 @@
+@import "./styles/variables.scss";
+
 .app {
   min-height: 100vh;
-  background-color: #f5f5f7;
-  padding: 2rem;
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Icons",
-    "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  background: lighten($pixel-bg-light, 5%);
+  padding: 20px;
 
-  h1 {
+  .app-header {
+    @include pixel-container;
+    background: $pixel-bg-primary;
+    margin-bottom: 24px;
     text-align: center;
-    color: #1d1d1f;
-    font-size: 3rem;
-    font-weight: 600;
-    letter-spacing: -0.003em;
-    margin-bottom: 2.5rem;
+
+    h1 {
+      font-family: "Press Start 2P", cursive;
+      font-size: 1.8rem;
+      color: $pixel-light;
+      margin: 0;
+      text-transform: uppercase;
+    }
   }
 
-  .content-wrapper {
-    max-width: 1200px;
+  .app-main {
+    max-width: 1400px;
     margin: 0 auto;
-    display: grid;
-    grid-gap: 2rem;
-    grid-template-columns: 1fr;
 
-    @media (min-width: 992px) {
-      grid-template-columns: 1fr 1fr;
+    .section {
+      margin-bottom: 24px;
     }
   }
 }

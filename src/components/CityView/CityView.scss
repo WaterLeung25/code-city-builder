@@ -1,0 +1,21 @@
+@import "../../styles/variables.scss";
+
+.city-view {
+  h2 {
+    font-family: "Press Start 2P", cursive;
+    font-size: 1.4rem;
+    color: $pixel-dark;
+    margin-bottom: 24px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .districts-container {
+    display: grid;
+    gap: 24px;
+
+    @media (min-width: 1200px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}

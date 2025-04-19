@@ -1,0 +1,83 @@
+@import "../../styles/variables.scss";
+
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  .main-header {
+    @include pixel-container;
+    background: $pixel-bg-dark;
+    margin-bottom: 24px;
+    padding: 16px 24px;
+
+    .app-title {
+      margin-bottom: 16px;
+      text-align: center;
+
+      h1 {
+        font-family: "Press Start 2P", cursive;
+        font-size: 1.5rem;
+        color: $pixel-light;
+        margin: 0;
+        text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        transition: text-shadow 0.3s ease-in-out, color 0.3s ease-in-out;
+
+        // Optional: Add a subtle animation
+        animation: glow 2s ease-in-out infinite alternate;
+      }
+    }
+
+    .main-nav {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+
+      .nav-link {
+        @include pixel-button;
+        text-decoration: none;
+        padding: 12px 24px;
+        font-family: "Press Start 2P", cursive;
+        font-size: 0.8rem;
+
+        &.active {
+          background: $pixel-primary;
+          color: white;
+        }
+      }
+
+      .log-progress-button {
+        @include pixel-button;
+        padding: 12px 24px;
+        font-family: "Press Start 2P", cursive;
+        font-size: 0.8rem;
+        background: $pixel-success;
+        color: white;
+
+        &:hover {
+          background: darken($pixel-success, 10%);
+        }
+      }
+    }
+  }
+
+  .main-content {
+    flex: 1;
+    padding: 0 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+// Optional: Add a subtle glow animation
+@keyframes glow {
+  from {
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
+  }
+  to {
+    text-shadow: 2px 2px 10px rgba($pixel-primary, 0.5);
+  }
+}

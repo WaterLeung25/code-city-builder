@@ -1,19 +1,22 @@
 import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./pages/Layout/Layout";
+
+import DashboardPage from "./pages/DashboardPage/DashboardPage";
+import CityViewPage from "./pages/CityViewPage/CityViewPage";
+
 import "./App.scss";
-import Dashboard from "./components/Dashboard/Dashboard";
-import ProgressForm from "./components/ProgressForm/ProgressForm";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Code City Builder</h1>
-      </header>
-      <main className="app-main">
-        <Dashboard />
-        <ProgressForm />
-      </main>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<DashboardPage />} />
+          <Route path="city" element={<CityViewPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

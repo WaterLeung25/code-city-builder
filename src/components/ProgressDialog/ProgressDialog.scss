@@ -1,0 +1,51 @@
+@import "../../styles/variables.scss";
+
+.progress-dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.progress-dialog {
+  @include pixel-container;
+  background: $pixel-bg-light;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+
+  .progress-dialog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 16px;
+    border-bottom: 4px solid $pixel-border-dark;
+    margin-bottom: 20px;
+
+    h2 {
+      font-family: "Press Start 2P", cursive;
+      font-size: 1.2rem;
+      color: $pixel-dark;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .close-button {
+      @include pixel-button;
+      padding: 8px 12px;
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+  }
+
+  .progress-dialog-content {
+    padding: 20px 0;
+  }
+}
