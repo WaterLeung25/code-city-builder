@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createSelector } from "@reduxjs/toolkit";
 
 const initialState = {
   SP: 500, // Solving Points
@@ -122,12 +122,21 @@ const resourcesSlice = createSlice({
 export const { addResources, spendResources, resetResources } =
   resourcesSlice.actions;
 
-// Selectors
-export const selectResources = (state) => ({
-  SP: state.resources.SP,
-  BM: state.resources.BM,
-});
+// Base selector
+const selectResourcesState = (state) => state.resources;
 
-export const selectStats = (state) => state.resources.stats;
+// Memoized selectors
+export const selectResources = createSelector(
+  [selectResourcesState],
+  (resources) => ({
+    SP: resources.SP,
+    BM: resources.BM,
+  })
+);
+
+export const selectStats = createSelector(
+  [selectResourcesState],
+  (resources) => resources.stats
+);
 
 export default resourcesSlice.reducer;

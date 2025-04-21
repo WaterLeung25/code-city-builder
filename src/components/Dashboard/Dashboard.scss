@@ -49,7 +49,7 @@
 
   .stats {
     @include pixel-container;
-    background: $pixel-bg-secondary;
+    background: $pixel-bg-primary;
     font-family: "Chakra Petch", sans-serif;
 
     h3 {
