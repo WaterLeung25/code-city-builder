@@ -1,8 +1,8 @@
 import { createSlice, createSelector } from "@reduxjs/toolkit";
 
 const initialState = {
-  SP: 500, // Solving Points
-  BM: 100, // Building Materials
+  SP: 0, // Solving Points
+  BM: 0, // Building Materials
   stats: {
     totalProblemsSolved: 0,
     problemsByDifficulty: {
