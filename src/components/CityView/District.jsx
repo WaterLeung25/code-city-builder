@@ -94,18 +94,6 @@ const District = ({ districtId, districtName, userBuildings }) => {
                 />
               ));
             })}
-            {/* {districtBuildings
-              .filter((building) => userBuildings[building.id])
-              .map((building) => (
-                <Building
-                  key={building.id}
-                  building={{
-                    ...building,
-                    district: districtId,
-                  }}
-                  currentLevel={userBuildings[building.id].level}
-                />
-              ))} */}
           </div>
         ) : (
           <div className="empty-district">
