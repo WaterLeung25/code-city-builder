@@ -9,9 +9,19 @@ const District = ({ districtId, districtName, userBuildings }) => {
   const { resources } = useResources();
   const districtBuildings = buildings[districtName] || [];
 
-  // Check if there are any buildings built in this district
-  const builtBuildingsInDistrict = districtBuildings.filter(
-    (building) => userBuildings[building.id]
+  // Group buildings by their original building ID
+  const groupedBuildings = Object.entries(userBuildings).reduce(
+    (acc, [uniqueId, building]) => {
+      if (building.districtId === districtId) {
+        const originalId = building.originalBuildingId;
+        if (!acc[originalId]) {
+          acc[originalId] = [];
+        }
+        acc[originalId].push({ ...building, uniqueId });
+      }
+      return acc;
+    },
+    {}
   );
 
   return (
@@ -68,9 +78,23 @@ const District = ({ districtId, districtName, userBuildings }) => {
       {/* Built Structures Section */}
       <div className="built-structures">
         <h4>Built Structures</h4>
-        {builtBuildingsInDistrict.length > 0 ? (
+        {Object.keys(groupedBuildings).length > 0 ? (
           <div className="buildings-grid">
-            {districtBuildings
+            {districtBuildings.map((building) => {
+              const instances = groupedBuildings[building.id] || [];
+              return instances.map((instance) => (
+                <Building
+                  key={instance.uniqueId}
+                  building={{
+                    ...building,
+                    district: districtId,
+                  }}
+                  buildingInstanceId={instance.uniqueId}
+                  currentLevel={instance.level}
+                />
+              ));
+            })}
+            {/* {districtBuildings
               .filter((building) => userBuildings[building.id])
               .map((building) => (
                 <Building
@@ -81,7 +105,7 @@ const District = ({ districtId, districtName, userBuildings }) => {
                   }}
                   currentLevel={userBuildings[building.id].level}
                 />
-              ))}
+              ))} */}
           </div>
         ) : (
           <div className="empty-district">

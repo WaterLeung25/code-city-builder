@@ -7,7 +7,12 @@ import {
 } from "../../store/slices/buildingsSlice";
 import "./Building.scss";
 
-const Building = ({ building, currentLevel, showOnlyBuildButton = false }) => {
+const Building = ({
+  building,
+  currentLevel,
+  buildingInstanceId,
+  showOnlyBuildButton = false,
+}) => {
   const dispatch = useDispatch();
   const { resources, canAffordCost, handleBuildingPurchase } = useResources();
 
@@ -31,7 +36,7 @@ const Building = ({ building, currentLevel, showOnlyBuildButton = false }) => {
     if (nextLevel && canAffordCost(nextLevel.cost)) {
       const success = handleBuildingPurchase(nextLevel.cost);
       if (success) {
-        dispatch(upgradeStructure({ buildingId: building.id }));
+        dispatch(upgradeStructure({ buildingId: buildingInstanceId }));
       }
     }
   };

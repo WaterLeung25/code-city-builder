@@ -1,4 +1,5 @@
 @import "../../styles/variables.scss";
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600&display=swap");
 
 .progress-dialog-overlay {
   position: fixed;
@@ -6,7 +7,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.75);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,10 +43,47 @@
       padding: 8px 12px;
       font-size: 1.2rem;
       line-height: 1;
+      font-family: "Chakra Petch", sans-serif;
+      font-weight: 600;
+      transition: all 0.2s ease;
+
+      &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      &:active {
+        transform: translateY(1px);
+      }
     }
   }
 
   .progress-dialog-content {
     padding: 20px 0;
+  }
+}
+
+// Media query for smaller screens
+@media (max-width: 768px) {
+  .progress-dialog {
+    width: 95%;
+    margin: 10px;
+
+    .progress-dialog-header {
+      padding: 12px 16px;
+
+      h2 {
+        font-size: 1.2rem;
+      }
+
+      .close-button {
+        padding: 6px 10px;
+        font-size: 1rem;
+      }
+    }
+
+    .progress-dialog-content {
+      padding: 16px;
+    }
   }
 }

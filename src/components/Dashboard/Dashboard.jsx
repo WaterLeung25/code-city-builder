@@ -21,7 +21,7 @@ const Dashboard = () => {
       </div>
 
       <div className="stats">
-        <h3>Statistics</h3>
+        <h3>📊 Statistics</h3>
         <div className="stats-grid">
           <div className="stat-item">
             <label>Total Problems:</label>
@@ -29,7 +29,7 @@ const Dashboard = () => {
           </div>
 
           <div className="difficulty-stats">
-            <h4>By Difficulty:</h4>
+            <h4>🎯 By Difficulty:</h4>
             <div className="stat-item">
               <label>Easy:</label>
               <span>{stats.problemsByDifficulty.easy}</span>
@@ -46,7 +46,7 @@ const Dashboard = () => {
 
           {Object.keys(stats.problemsByPattern).length > 0 && (
             <div className="pattern-stats">
-              <h4>By Pattern:</h4>
+              <h4>🧩 By Pattern:</h4>
               {Object.entries(stats.problemsByPattern).map(
                 ([pattern, count]) => (
                   <div key={pattern} className="stat-item">

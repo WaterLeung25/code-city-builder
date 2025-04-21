@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import ProgressDialog from "../../components/ProgressDialog/ProgressDialog";
 import "./Layout.scss";
@@ -11,7 +10,14 @@ const Layout = () => {
     <div className="layout">
       <header className="main-header">
         <div className="app-title">
-          <h1>Code City Builder</h1>
+          <div className="title-container">
+            {/* <img
+              src={`${process.env.PUBLIC_URL}/logo192.png`}
+              alt="Code City Builder Logo"
+              className="app-logo"
+            /> */}
+            <h1>Code City Builder</h1>
+          </div>
         </div>
         <nav className="main-nav">
           <NavLink
@@ -39,11 +45,13 @@ const Layout = () => {
         </nav>
       </header>
       <main className="main-content">
-        <Outlet />
-        <ProgressDialog
-          isOpen={isProgressDialogOpen}
-          onClose={() => setProgressDialogOpen(false)}
-        />
+        <div className="content-container">
+          <Outlet />
+          <ProgressDialog
+            isOpen={isProgressDialogOpen}
+            onClose={() => setProgressDialogOpen(false)}
+          />
+        </div>
       </main>
     </div>
   );

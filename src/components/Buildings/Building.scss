@@ -1,123 +1,274 @@
 @import "../../styles/variables.scss";
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&display=swap");
 
 .building {
   @include pixel-container;
-  padding: 20px; // Added more padding for better spacing
+  padding: 24px;
+  border-radius: 8px;
+  background-color: #fff;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+  }
 
   .building-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px; // Increased margin
-    padding-bottom: 20px; // Increased padding
+    margin-bottom: 24px;
+    padding-bottom: 20px;
     border-bottom: 4px solid $pixel-border-dark;
 
     h3 {
-      font-family: "Press Start 2P", cursive;
-      font-size: 0.9rem;
+      font-family: "Chakra Petch", sans-serif;
+      font-size: 1.2rem;
+      font-weight: 600;
       color: $pixel-dark;
       margin: 0;
-      line-height: 1.5; // Added line height
+      line-height: 1.4;
+      letter-spacing: 0.5px;
     }
 
     .level-badge {
-      font-family: "Press Start 2P", cursive;
-      font-size: 0.8rem;
-      padding: 8px 12px;
+      font-family: "Chakra Petch", sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 8px 16px;
       background: $pixel-primary;
       color: white;
       @include pixel-borders($pixel-border-dark, 2px);
-      line-height: 1.5; // Added line height
-      display: inline-block; // Added to ensure proper spacing
-      white-space: nowrap; // Prevent text wrapping
-      min-width: 50px; // Ensure minimum width
-      text-align: center; // Center the text
+      line-height: 1.4;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 30px;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: all 0.2s ease;
     }
   }
 
   .building-content {
     .current-name {
-      font-family: "Press Start 2P", cursive;
-      font-size: 0.8rem;
+      font-family: "Chakra Petch", sans-serif;
+      font-size: 1.1rem;
+      font-weight: 500;
       color: $pixel-dark;
-      margin-bottom: 20px; // Increased margin
-      line-height: 1.5; // Added line height
+      margin-bottom: 24px;
+      line-height: 1.4;
+      letter-spacing: 0.3px;
     }
 
     .upgrade-section {
       @include pixel-container;
       background: $pixel-bg-secondary;
-      margin-top: 20px; // Increased margin
-      padding: 20px; // Added more padding
+      margin-top: 24px;
+      padding: 24px;
+      border-radius: 8px;
 
       .next-level-header {
-        margin-bottom: 12px;
+        margin-bottom: 16px;
 
         .next-level-label {
-          font-family: "Press Start 2P", cursive;
-          font-size: 0.8rem;
+          font-family: "Chakra Petch", sans-serif;
+          font-size: 1rem;
+          font-weight: 500;
           color: $pixel-light;
           margin-bottom: 8px;
-          line-height: 1.5;
+          line-height: 1.4;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
         }
 
         .next-level-name {
-          font-family: "Press Start 2P", cursive;
-          font-size: 0.8rem;
+          font-family: "Chakra Petch", sans-serif;
+          font-size: 1.1rem;
+          font-weight: 600;
           color: $pixel-light;
-          line-height: 1.5;
+          line-height: 1.4;
         }
+      }
+
+      .upgrade-costs {
+        margin-bottom: 20px;
       }
 
       .cost-item {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 12px; // Increased padding
-        margin-bottom: 12px; // Increased margin
+        padding: 14px 16px;
+        margin-bottom: 12px;
         background: $pixel-bg-light;
         @include pixel-borders($pixel-border-light, 2px);
+        transition: all 0.2s ease;
+        color: white;
+        font-weight: 500;
+
+        &:hover {
+          transform: translateX(4px);
+        }
 
         &.sufficient {
           border-color: $pixel-success;
+          background: rgba($pixel-success, 0.65);
         }
 
         &.insufficient {
           border-color: $pixel-danger;
+          background: rgba($pixel-danger, 0.65);
         }
 
         span {
-          font-family: "Press Start 2P", cursive;
-          font-size: 0.7rem;
-          line-height: 1.5; // Added line height
+          font-family: "Chakra Petch", sans-serif;
+          font-size: 0.9rem;
+          font-weight: 500;
+          line-height: 1.4;
         }
       }
 
       .upgrade-button {
         @include pixel-button;
         width: 100%;
-        margin-top: 20px; // Increased margin
-        padding: 12px; // Added padding
-        font-size: 0.8rem; // Slightly increased font size
-        line-height: 1.5; // Added line height
+        margin-top: 24px;
+        padding: 14px;
+        font-family: "Chakra Petch", sans-serif;
+        font-size: 1rem;
+        font-weight: 600;
+        line-height: 1.4;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.2s ease;
+
+        &:hover:not(:disabled) {
+          transform: translateY(-2px);
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        &:disabled {
+          opacity: 0.7;
+          cursor: not-allowed;
+        }
+      }
+    }
+
+    .max-level {
+      text-align: center;
+      padding: 20px;
+      background: linear-gradient(135deg, #2ecc71, #27ae60);
+      color: white;
+      border-radius: 8px;
+      margin-top: 24px;
+      box-shadow: 0 4px 8px rgba(46, 204, 113, 0.2);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: scale(1.02);
+        box-shadow: 0 6px 12px rgba(46, 204, 113, 0.3);
+      }
+
+      p {
+        margin: 0;
+        font-size: 1.2rem;
+        font-weight: 600;
+        font-family: "Chakra Petch", sans-serif;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.8rem;
+
+        &::before {
+          content: "🏆";
+          font-size: 1.4rem;
+        }
+
+        &::after {
+          content: "🏆";
+          font-size: 1.4rem;
+        }
       }
     }
   }
 
   // Level-specific styling with slightly more contrast
   &.level-0 {
-    background: $pixel-bg-light;
+    background: linear-gradient(
+      to bottom right,
+      $pixel-bg-light,
+      darken($pixel-bg-light, 3%)
+    );
   }
 
   &.level-1 {
-    background: lighten($pixel-primary, 42%);
+    background: linear-gradient(
+      to bottom right,
+      lighten($pixel-primary, 42%),
+      lighten($pixel-primary, 38%)
+    );
   }
 
   &.level-2 {
-    background: lighten($pixel-primary, 32%);
+    background: linear-gradient(
+      to bottom right,
+      lighten($pixel-primary, 32%),
+      lighten($pixel-primary, 28%)
+    );
   }
 
   &.level-3 {
-    background: lighten($pixel-primary, 22%);
+    background: linear-gradient(
+      to bottom right,
+      lighten($pixel-primary, 22%),
+      lighten($pixel-primary, 18%)
+    );
+  }
+}
+
+@media (max-width: 768px) {
+  .building {
+    padding: 20px;
+
+    .building-header {
+      h3 {
+        font-size: 1.1rem;
+      }
+
+      .level-badge {
+        font-size: 0.9rem;
+        padding: 6px 12px;
+      }
+    }
+
+    .building-content {
+      .current-name {
+        font-size: 1rem;
+      }
+
+      .upgrade-section {
+        padding: 20px;
+
+        .next-level-label,
+        .next-level-name {
+          font-size: 0.9rem;
+        }
+
+        .cost-item span {
+          font-size: 0.8rem;
+        }
+
+        .upgrade-button {
+          font-size: 0.9rem;
+          padding: 12px;
+        }
+      }
+    }
   }
 }

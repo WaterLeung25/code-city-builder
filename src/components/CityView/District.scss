@@ -1,8 +1,10 @@
 @import "../../styles/variables.scss";
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&display=swap");
 
 .district {
   @include pixel-container;
   margin-bottom: 24px;
+  transition: transform 0.2s ease;
 
   .district-header {
     display: flex;
@@ -13,15 +15,32 @@
     border-bottom: 4px solid $pixel-border-dark;
 
     h3 {
-      font-family: "Press Start 2P", cursive;
-      font-size: 1rem;
+      font-family: "Chakra Petch", sans-serif;
+      font-size: 1.3rem;
+      font-weight: 600;
       color: $pixel-dark;
       margin: 0;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
     }
 
     .build-button {
       @include pixel-button;
-      font-size: 0.7rem;
+      font-family: "Chakra Petch", sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 8px 16px;
+      transition: all 0.2s ease;
+      text-transform: uppercase;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      }
+
+      &:active {
+        transform: translateY(1px);
+      }
     }
   }
 
@@ -31,69 +50,98 @@
     margin-bottom: 24px;
 
     h4 {
-      font-family: "Press Start 2P", cursive;
-      font-size: 0.9rem;
+      font-family: "Chakra Petch", sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
       color: $pixel-light;
+      margin-top: 0;
       margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
     .available-buildings {
       display: grid;
-      gap: 16px;
-      grid-template-columns: repeat(
-        auto-fill,
-        minmax(230px, 1fr)
-      ); // Reduced from 250px to 200px
+      gap: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
     }
 
     .available-building {
       @include pixel-container;
       background: $pixel-bg-light;
-      display: flex; // Added
-      flex-direction: column; // Added
-      height: 280; // Fixed height - adjust this value as needed
-      justify-content: space-between; // Added
+      display: flex;
+      flex-direction: column;
+      height: 220px;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      }
 
       .building-info {
-        flex: 1; // Added to allow content to grow
-        overflow-y: auto; // Added to handle overflow content
-        padding-right: 8px; // Added for scroll bar spacing
+        flex: 1;
+        overflow-y: auto;
+        padding-right: 16px;
+
+        &::-webkit-scrollbar {
+          width: 8px;
+        }
+
+        &::-webkit-scrollbar-track {
+          background: darken($pixel-bg-light, 5%);
+          border-radius: 4px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background: $pixel-primary;
+          border-radius: 4px;
+
+          &:hover {
+            background: darken($pixel-primary, 10%);
+          }
+        }
 
         h5 {
-          font-family: "Press Start 2P", cursive;
-          font-size: 0.8rem;
+          font-family: "Chakra Petch", sans-serif;
+          font-size: 1.1rem;
+          font-weight: 600;
           color: $pixel-dark;
-          margin: 0 0 8px 0;
-          line-height: 1.5;
+          margin: 0 0 12px 0;
+          line-height: 1.4;
         }
 
         p {
-          font-family: "Press Start 2P", cursive;
-          font-size: 0.7rem;
+          font-family: "Chakra Petch", sans-serif;
+          font-size: 0.9rem;
           color: $pixel-primary;
-          margin: 0 0 8px 0;
-          line-height: 1.6;
+          margin: 0 0 12px 0;
+          line-height: 1.5;
         }
 
         .cost-display {
           display: flex;
           flex-direction: column;
           gap: 8px;
-          font-family: "Press Start 2P", cursive;
-          font-size: 0.7rem;
-          line-height: 1.5;
+          font-family: "Chakra Petch", sans-serif;
+          font-size: 0.9rem;
+          line-height: 1.4;
 
           .cost-line {
             color: $pixel-dark;
+            font-weight: 500;
           }
 
           .balance-line {
             &.sufficient {
               color: $pixel-success;
+              font-weight: 500;
             }
 
             &.insufficient {
               color: $pixel-danger;
+              font-weight: 500;
             }
           }
         }
@@ -101,40 +149,97 @@
 
       .build-button {
         @include pixel-button;
-        width: 100%;
-        font-size: 0.7rem;
-        margin-top: 12px; // Added some spacing from content above
+        margin-top: 12px;
+        font-family: "Chakra Petch", sans-serif;
+        font-size: 0.9rem;
+        font-weight: 500;
+        padding: 10px;
+        transition: all 0.2s ease;
+
+        &:hover:not(:disabled) {
+          background: darken($pixel-primary, 10%);
+          transform: translateY(-2px);
+        }
+
+        &:disabled {
+          opacity: 0.7;
+          cursor: not-allowed;
+        }
       }
     }
   }
 
   .built-structures {
     h4 {
-      font-family: "Press Start 2P", cursive;
-      font-size: 0.9rem;
+      font-family: "Chakra Petch", sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
       color: $pixel-dark;
       margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
     .buildings-grid {
       display: grid;
-      gap: 16px;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 16px;
     }
 
     .empty-district {
       @include pixel-container;
       background: lighten($pixel-primary, 45%);
       text-align: center;
-      padding: 24px;
+      padding: 32px;
+      border-radius: 8px;
 
       p {
-        font-family: "Press Start 2P", cursive;
-        font-size: 0.8rem;
+        font-family: "Chakra Petch", sans-serif;
+        font-size: 1rem;
         color: $pixel-dark;
         margin: 0;
         line-height: 1.5;
+        opacity: 0.8;
       }
+    }
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Media queries for responsiveness
+@media (max-width: 768px) {
+  .district {
+    .district-header {
+      h3 {
+        font-size: 1.1rem;
+      }
+
+      .build-button {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+      }
+    }
+
+    .available-building {
+      height: auto;
+      min-height: 280px;
+    }
+
+    .buildings-grid {
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 16px;
+      padding: 12px;
     }
   }
 }

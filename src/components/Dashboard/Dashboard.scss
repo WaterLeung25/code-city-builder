@@ -1,4 +1,5 @@
 @import "../../styles/variables.scss";
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600&display=swap");
 
 .dashboard {
   h2 {
@@ -21,17 +22,25 @@
       background: lighten($pixel-primary, 45%);
       text-align: center;
       padding: 16px;
+      transition: transform 0.2s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+      }
 
       h3 {
-        font-family: "Press Start 2P", cursive;
-        font-size: 0.95rem;
+        font-family: "Chakra Petch", sans-serif;
+        font-size: 1.3rem;
+        font-weight: 600;
         color: $pixel-dark;
         margin-bottom: 12px;
+        margin-top: 12px;
       }
 
       p {
-        font-family: "Press Start 2P", cursive;
-        font-size: 1.3rem;
+        font-family: "Chakra Petch", sans-serif;
+        font-size: 1.6rem;
+        font-weight: 600;
         color: $pixel-primary;
         margin: 0;
       }
@@ -41,12 +50,15 @@
   .stats {
     @include pixel-container;
     background: $pixel-bg-secondary;
+    font-family: "Chakra Petch", sans-serif;
 
     h3 {
-      font-family: "Press Start 2P", cursive;
-      font-size: 1rem;
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
       color: $pixel-light;
       margin-bottom: 20px;
+      text-transform: uppercase;
     }
 
     .stats-grid {
@@ -56,21 +68,21 @@
       .stat-item {
         @include pixel-borders($pixel-border-light, 2px);
         background: $pixel-bg-light;
-        padding: 8px 12px;
+        padding: 10px 16px;
         margin-bottom: 8px;
         display: flex;
         justify-content: space-between;
         align-items: center;
 
         label {
-          font-family: "Press Start 2P", cursive;
-          font-size: 0.75rem;
+          font-size: 1rem;
+          font-weight: 600;
           color: $pixel-dark;
         }
 
         span {
-          font-family: "Press Start 2P", cursive;
-          font-size: 0.8rem;
+          font-size: 1rem;
+          font-weight: 600;
           color: $pixel-primary;
         }
       }
@@ -78,10 +90,11 @@
       .difficulty-stats,
       .pattern-stats {
         h4 {
-          font-family: "Press Start 2P", cursive;
-          font-size: 1rem;
+          font-size: 1.2rem;
+          font-weight: 600;
           color: $pixel-light;
           margin-bottom: 12px;
+          text-transform: uppercase;
         }
       }
     }

@@ -3,13 +3,21 @@
 .app {
   min-height: 100vh;
   background: lighten($pixel-bg-light, 5%);
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
 
   .app-header {
     @include pixel-container;
     background: $pixel-bg-primary;
     margin-bottom: 24px;
     text-align: center;
+    padding: 24px;
+    width: 100%;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
 
     h1 {
       font-family: "Press Start 2P", cursive;
@@ -22,10 +30,48 @@
 
   .app-main {
     max-width: 1400px;
+    width: 100%;
     margin: 0 auto;
+    padding: 0 24px 24px;
+    flex: 1;
 
     .section {
       margin-bottom: 24px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 1440px) {
+  .app {
+    .app-header,
+    .app-main {
+      max-width: 100%;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .app {
+    .app-header {
+      margin-top: 16px;
+      margin-bottom: 16px;
+      padding: 20px;
+
+      h1 {
+        font-size: 1.6rem;
+      }
+    }
+
+    .app-main {
+      padding: 0 16px 16px;
+
+      .section {
+        margin-bottom: 16px;
+      }
     }
   }
 }
