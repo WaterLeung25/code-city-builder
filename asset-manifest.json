@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/code-city-builder/static/css/main.c6dbc20c.css",
-    "main.js": "/code-city-builder/static/js/main.af03235b.js",
+    "main.css": "/code-city-builder/static/css/main.92f797b2.css",
+    "main.js": "/code-city-builder/static/js/main.045b9330.js",
     "index.html": "/code-city-builder/index.html",
-    "main.c6dbc20c.css.map": "/code-city-builder/static/css/main.c6dbc20c.css.map",
-    "main.af03235b.js.map": "/code-city-builder/static/js/main.af03235b.js.map"
+    "main.92f797b2.css.map": "/code-city-builder/static/css/main.92f797b2.css.map",
+    "main.045b9330.js.map": "/code-city-builder/static/js/main.045b9330.js.map"
   },
   "entrypoints": [
-    "static/css/main.c6dbc20c.css",
-    "static/js/main.af03235b.js"
+    "static/css/main.92f797b2.css",
+    "static/js/main.045b9330.js"
   ]
 }
