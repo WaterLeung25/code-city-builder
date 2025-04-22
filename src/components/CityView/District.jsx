@@ -3,6 +3,7 @@ import Building from "../Buildings/Building";
 import { buildings } from "../../data/buildings";
 import { useResources } from "../../hooks/useResources";
 import "./District.scss";
+import PropTypes from "prop-types";
 
 const District = ({ districtId, districtName, userBuildings }) => {
   const [showBuildOptions, setShowBuildOptions] = useState(false);
@@ -23,6 +24,8 @@ const District = ({ districtId, districtName, userBuildings }) => {
     },
     {}
   );
+
+  const [isExpanded, setIsExpanded] = useState(true);
 
   return (
     <div className="district">
@@ -77,32 +80,50 @@ const District = ({ districtId, districtName, userBuildings }) => {
 
       {/* Built Structures Section */}
       <div className="built-structures">
-        <h4>Built Structures</h4>
-        {Object.keys(groupedBuildings).length > 0 ? (
-          <div className="buildings-grid">
-            {districtBuildings.map((building) => {
-              const instances = groupedBuildings[building.id] || [];
-              return instances.map((instance) => (
-                <Building
-                  key={instance.uniqueId}
-                  building={{
-                    ...building,
-                    district: districtId,
-                  }}
-                  buildingInstanceId={instance.uniqueId}
-                  currentLevel={instance.level}
-                />
-              ));
-            })}
-          </div>
-        ) : (
-          <div className="empty-district">
-            <p>No structures built yet in this district.</p>
+        <div className="structures-header">
+          <h4>Built Structures</h4>
+          <button
+            className="toggle-button"
+            onClick={() => setIsExpanded(!isExpanded)}
+          >
+            {isExpanded ? "HIDE" : "SHOW"}
+          </button>
+        </div>
+
+        {isExpanded && (
+          <div className="structures-content">
+            {Object.keys(groupedBuildings).length > 0 ? (
+              <div className="buildings-grid">
+                {districtBuildings.map((building) => {
+                  const instances = groupedBuildings[building.id] || [];
+                  return instances.map((instance) => (
+                    <Building
+                      key={instance.uniqueId}
+                      building={{
+                        ...building,
+                        district: districtId,
+                      }}
+                      buildingInstanceId={instance.uniqueId}
+                      currentLevel={instance.level}
+                    />
+                  ));
+                })}
+              </div>
+            ) : (
+              <div className="empty-district">
+                <p>No structures built yet in this district.</p>
+              </div>
+            )}
           </div>
         )}
       </div>
     </div>
   );
+};
+District.propTypes = {
+  districtId: PropTypes.string.isRequired,
+  districtName: PropTypes.string.isRequired,
+  userBuildings: PropTypes.object.isRequired,
 };
 
 export default District;
