@@ -1,6 +1,8 @@
 # Code City Builder 🏗️
 
-Code City Builder is an interactive web application that transforms coding interview practice into an engaging city-building experience. Track your progress, earn resources, and build your own tech metropolis while improving your programming skills!
+Code City Builder is an interactive web application that transforms coding interview practice into an engaging city-building experience. Track your progress, earn resources, and build your tech metropolis while improving your programming skills!
+
+https://waterleung25.github.io/code-city-builder
 
 ## 🌟 Features
 
