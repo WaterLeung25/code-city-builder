@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { patterns } from "../../data/patterns";
 import { useResources } from "../../hooks/useResources";
 import "./ProgressForm.scss";
+import PropTypes from "prop-types";
 
 const ProgressForm = ({ onSubmitSuccess }) => {
   const { handleProblemSolved } = useResources();
@@ -76,6 +77,9 @@ const ProgressForm = ({ onSubmitSuccess }) => {
       </form>
     </div>
   );
+};
+ProgressForm.propTypes = {
+  onSubmitSuccess: PropTypes.func,
 };
 
 export default ProgressForm;

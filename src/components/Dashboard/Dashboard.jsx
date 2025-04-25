@@ -24,23 +24,25 @@ const Dashboard = () => {
         <h3>📊 Statistics</h3>
         <div className="stats-grid">
           <div className="stat-item">
-            <label>Total Problems:</label>
-            <span>{stats.totalProblemsSolved}</span>
+            <label htmlFor="total-problems">Total Problems:</label>
+            <span id="total-problems">{stats.totalProblemsSolved}</span>
           </div>
 
           <div className="difficulty-stats">
             <h4>🎯 By Difficulty:</h4>
             <div className="stat-item">
-              <label>Easy:</label>
-              <span>{stats.problemsByDifficulty.easy}</span>
+              <label htmlFor="easy-problems">Easy:</label>
+              <span id="easy-problems">{stats.problemsByDifficulty.easy}</span>
             </div>
             <div className="stat-item">
-              <label>Medium:</label>
-              <span>{stats.problemsByDifficulty.medium}</span>
+              <label htmlFor="medium-problems">Medium:</label>
+              <span id="medium-problems">
+                {stats.problemsByDifficulty.medium}
+              </span>
             </div>
             <div className="stat-item">
-              <label>Hard:</label>
-              <span>{stats.problemsByDifficulty.hard}</span>
+              <label htmlFor="hard-problems">Hard:</label>
+              <span id="hard-problems">{stats.problemsByDifficulty.hard}</span>
             </div>
           </div>
 

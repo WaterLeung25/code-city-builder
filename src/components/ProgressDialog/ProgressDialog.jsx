@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import ProgressForm from "../ProgressForm/ProgressForm";
 import "./ProgressDialog.scss";
 
@@ -24,6 +25,10 @@ const ProgressDialog = ({ isOpen, onClose }) => {
       </div>
     </div>
   );
+};
+ProgressDialog.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
 };
 
 export default ProgressDialog;
