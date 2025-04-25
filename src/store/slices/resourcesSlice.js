@@ -1,4 +1,5 @@
 import { createSlice, createSelector } from "@reduxjs/toolkit";
+import { PATTERN_TO_CATEGORY } from "../../data/patterns"; // Assuming you have a mapping of patterns to categories
 
 const initialState = {
   SP: 0, // Solving Points
@@ -30,44 +31,20 @@ const DIFFICULTY_BASE_RATES = {
   },
 };
 
-// Pattern multipliers based on complexity
-const PATTERN_MULTIPLIERS = {
-  // Fundamentals (1x multiplier - base difficulty)
-  "Two Pointers": 1,
-  "Hash Table": 1,
-  "Linked List": 1,
-
-  // Algorithm Avenue (1.2x multiplier - slightly more complex)
-  "Fast & Slow Pointers": 1.2,
-  "Sliding Window": 1.2,
-  "Binary Search": 1.2,
-
-  // Data Structure District (1.3x multiplier)
-  Stack: 1.3,
-  Heap: 1.3,
-  Interval: 1.3,
-
-  // Advanced Algorithms Area (1.4x multiplier)
-  "Prefix Sum": 1.4,
-  Tree: 1.4,
-  Trie: 1.4,
-
-  // Master's Quarter (1.5x multiplier - most complex)
-  Graph: 1.5,
-  Backtracking: 1.5,
-  "Dynamic Programming": 1.5,
-
-  // Special District (1.4x multiplier)
-  Greedy: 1.4,
-  "Sort & Search": 1.4,
-  "Bit Manipulation": 1.4,
-  "Math & Geometry": 1.4,
+const CATEGORY_MULTIPLIERS = {
+  FUNDAMENTALS: 1.0,
+  ALGORITHM: 1.2,
+  DATA_STRUCTURE: 1.3,
+  ADVANCED: 1.4,
+  MASTERS: 1.5,
+  SPECIAL: 1.6,
 };
 
 // Calculate final rewards based on both difficulty and pattern
 const calculateRewards = (difficulty, pattern) => {
   const baseRates = DIFFICULTY_BASE_RATES[difficulty];
-  const multiplier = PATTERN_MULTIPLIERS[pattern] || 1;
+  const cat = PATTERN_TO_CATEGORY[pattern];
+  const multiplier = CATEGORY_MULTIPLIERS[cat] ?? 1;
 
   return {
     SP: Math.round(baseRates.SP * multiplier),

@@ -6,6 +6,7 @@ import {
   upgradeStructure,
 } from "../../store/slices/buildingsSlice";
 import "./Building.scss";
+import PropTypes from "prop-types";
 
 const Building = ({
   building,
@@ -111,6 +112,13 @@ const Building = ({
       </div>
     </div>
   );
+};
+
+Building.propTypes = {
+  building: PropTypes.object.isRequired,
+  currentLevel: PropTypes.number.isRequired,
+  buildingInstanceId: PropTypes.string.isRequired,
+  showOnlyBuildButton: PropTypes.bool,
 };
 
 export default Building;
